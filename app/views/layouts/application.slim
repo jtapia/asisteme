@@ -21,7 +21,11 @@ html
 
         ul#nav-mobile.side-nav
           li
-            a href="#"  Iniciar Sesi&oacute;n
+            - if user_signed_in?
+              = link_to('Cerrar Sesión', destroy_user_session_path, :method => :delete)
+            - else
+              = link_to "Iniciar sesión", new_user_session_path
+
         a.button-collapse data-activates="nav-mobile" href="#"
           i.material-icons menu
     #main-content
