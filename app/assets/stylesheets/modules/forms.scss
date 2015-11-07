@@ -1,0 +1,4 @@
+input:focus:not([readonly]){
+  border-bottom: 1px solid $main-color-1 !important;
+  box-shadow: 0 1px 0 0 $main-color-1 !important;
+}

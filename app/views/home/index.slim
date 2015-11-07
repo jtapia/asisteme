@@ -17,7 +17,7 @@
           h5.center Ofrecer asistencia
           p.light.center-align Reg&iacute;strate como proveedor de asistencia en nuestra plataforma para recibir ofertas de trabajo en tiempo real cerca de ti.
           .row.center
-            a#download-button.btn-large.waves-effect.waves-light.light-blue.lighten-3 href="http://materializecss.com/getting-started.html"  Registrarse
+            = link_to('Registrarse', nurses_sign_up_path, class: 'btn-large waves-effect waves-light light-blue lighten-3', id: 'download-button')
       .col.s12.m6
         .icon-block
           h2.center.light-blue-text.text-lighten-3
@@ -25,7 +25,7 @@
           h5.center Solicitar asistencia
           p.light.center-align Reg&iacute;strate como usuario en nuestra plataforma para buscar personal capacitado que atienda las necesidades de asistencia tuyas o de tu familia.
           .row.center
-            a#download-button.btn-large.waves-effect.waves-light.light-blue.lighten-3 href="http://materializecss.com/getting-started.html"  Registrarse
+            = link_to('Registrarse', customers_sign_up_path, class: 'btn-large waves-effect waves-light light-blue lighten-3', id: 'download-button')
 .parallax-container.valign-wrapper
   .section.no-pad-bot
     .container

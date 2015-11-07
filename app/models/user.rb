@@ -3,4 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  # callbacks
+  after_create :set_default_user_type
+
+  private
+
+    def set_default_user_type
+      self.update_column(:type, 'Customer') unless self.type
+    end
 end

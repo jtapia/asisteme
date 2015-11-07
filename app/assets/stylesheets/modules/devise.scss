@@ -1,0 +1,53 @@
+.devise-form {
+  .actions {
+    input[type=submit] {
+      background: none;
+      border: none;
+    }
+  }
+
+  .registration-title-container {
+
+    height: 64px;
+
+    .icon-title {
+      display: inline-block;
+    }
+
+    .title {
+      display: inline-block;
+      margin-top: 16px;
+      vertical-align: 9px;
+    }
+
+  }
+
+  .icon-increase-font-size { font-size: 49px; }
+
+  #error_explanation {
+    text-align: center;
+
+    h2 { display: none }
+
+    ul {
+
+      text-align: left;
+
+      li {
+        background-image: image-url('icons/icon-warning.png');
+        background-position: left 0 top 2px;
+        background-repeat: no-repeat;
+        -webkit-background-size: 13px 13px;
+        background-size: 19px 19px;
+        line-height: 1.5;
+        list-style: none;
+        padding-left: 35px;
+        margin-bottom: 4px;
+
+        // used from materialize
+        @extend .red-text !optional;
+        padding-top: 3px;
+      }
+    }
+  }
+}
