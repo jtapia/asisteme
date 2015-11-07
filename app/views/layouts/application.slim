@@ -11,10 +11,14 @@ html
   body
     nav.white role="navigation"
       .nav-wrapper.container
-        a#logo-container.brand-logo href="#"  Logo
+        = link_to "Logo", root_path, class: 'brand-logo', id: 'logo-container'
         ul.right.hide-on-med-and-down
           li
-            a href="#"  Iniciar Sesi&oacute;n
+            - if user_signed_in?
+              = link_to('Cerrar Sesión', destroy_user_session_path, :method => :delete)
+            - else
+              = link_to "Iniciar sesión", new_user_session_path
+
         ul#nav-mobile.side-nav
           li
             a href="#"  Iniciar Sesi&oacute;n

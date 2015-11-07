@@ -1,26 +1,38 @@
-<h2>Log in</h2>
+<div class='container devise-form'>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <div class="row">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <%= form_for(resource, html: { class: 'col s12 m12 l8 offset-l2' }, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <h3 class='center light-blue-text text-lighten-3'>Iniciar Sesión</h3>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="input-field col s12">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="input-field col s12">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+      </div>
+
+      <div class="row actions">
+        <div class="input-field col s12">
+          <%= f.submit "Ingresar", class: 'waves-effect btn light-blue lighten-3' %>
+        </div>
+      </div>
+
+      <%= render "users/shared/links" %>
+
+    <% end %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
