@@ -1,16 +1,30 @@
-<h2>Forgot your password?</h2>
+<div class='container devise-form'>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="row">
+    <%= form_for(resource, as: resource_name,
+                           url: password_path(resource_name),
+                           html: { method: :post, class: 'col s12 m12 l8 offset-l2'}) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <h3 class='center light-blue-text text-lighten-3'>Olvidaste tu contraseña</h3>
+
+      <%= devise_error_messages! %>
+
+      <div class="row">
+
+        <div class="input-field col s12">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+      </div>
+
+      <div class="row actions">
+        <div class="input-field col s12">
+          <%= f.submit "Enviar instrucciones para resetear contraseña", class: 'waves-effect btn light-blue lighten-3' %>
+        </div>
+      </div>
+
+      <%= render "users/shared/links" %>
+    <% end %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
