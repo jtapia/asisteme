@@ -21,7 +21,6 @@ gem 'ransack', '~> 1.6.6'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
-gem 'sqlite3'
 gem 'state_machines-activerecord'
 gem 'turbolinks'
 gem 'twilio-ruby', '~> 4.2.1'
