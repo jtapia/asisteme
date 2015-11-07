@@ -1,0 +1,51 @@
+//colors
+$color_tundora_approx: #444;
+$color_jungle_green_approx: #26a69a;
+$white_90: rgba(255,255,255,.9);
+
+nav {
+  .brand-logo {
+    color: $color_tundora_approx;
+  }
+  ul a {
+    color: $color_tundora_approx;
+  }
+}
+p {
+  line-height: 2rem;
+}
+.button-collapse {
+  color: $color_jungle_green_approx;
+}
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: $white_90;
+  .section {
+    width: 100%;
+  }
+}
+@media only screen and(max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+@media only screen and(max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+.icon-block {
+  padding: 0 15px;
+  .material-icons {
+    font-size: inherit;
+  }
+}
+footer.page-footer {
+  margin: 0;
+}
