@@ -11,7 +11,7 @@ html
   body class="#{controller_name}"
     nav.white.main-nav role="navigation"
       .nav-wrapper.container
-        == link_to '#', id: 'logo-container', class: 'brand-logo' do
+        == link_to root_path, id: 'logo-container', class: 'brand-logo' do
           == image_tag 'home/logo.svg'
         ul.right.hide-on-med-and-down
           li
@@ -22,14 +22,15 @@ html
           li
             = link_to('Trabaja como asistente', nurses_sign_up_path, class: 'btn waves-effect waves-light light-blue darken-4', id: 'download-button')
         ul#nav-mobile.side-nav
-          li.light-blue.lighten-3
-            - if user_signed_in?
-              = link_to('Cerrar Sesión', destroy_user_session_path, :method => :delete)
-            - else
-              = link_to "Iniciar sesión", new_user_session_path
           li
-            a#download-button.btn.waves-effect.waves-light.light-blue.darken-4 href="#"  Trabaja como asistente
-        a.button-collapse data-activates="nav-mobile" href="#"
+            - if user_signed_in?
+              = link_to('Cerrar Sesión', destroy_user_session_path, :method => :delete, class: 'light-blue-text text-darken-4')
+            - else
+              = link_to "Iniciar sesión", new_user_session_path, class: 'light-blue-text text-darken-4'
+          .divider
+          li
+            = link_to('Trabaja como asistente', nurses_sign_up_path, class: 'light-blue-text text-darken-4')
+        a.light-blue-text.text-darken-4.button-collapse data-activates="nav-mobile" href="#"
           i.material-icons menu
     #main-content
       == yield
