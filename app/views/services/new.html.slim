@@ -1,0 +1,52 @@
+.container
+  .row
+    = form_for @service, as: :service, html: { class: 'col s12 m12 l8 offset-l2', method: :post  }, url: services_path do |f|
+      h3.center.light-blue-text.text-darken-4.title
+        | Completa tu Perfil
+      .row
+
+        = f.fields_for :address do |address_fields|
+          .input-field.col.s12
+            = address_fields.label 'Calle y Numero *', class: "#{render_error_message(@service, 'address')}"
+            br/
+            = address_fields.text_field :line_1, autofocus: true, class: "#{render_error_message(@service, 'address')}", value: current_user.full_address[:line_1]
+
+          .input-field.col.s12
+            = address_fields.label 'Colonia *', class: "#{render_error_message(@service, 'address')}"
+            br/
+            = address_fields.text_field :line_2, autofocus: true, class: "#{render_error_message(@service, 'address')}", value: current_user.full_address[:line_2]
+
+          .input-field.col.s12
+            = address_fields.label 'Estado *', class: "#{render_error_message(@service, 'address')}"
+            br/
+            = address_fields.text_field :state, autofocus: true, class: "#{render_error_message(@service, 'address')}", value: current_user.full_address[:state]
+
+          .input-field.col.s12
+            = address_fields.label 'Ciudad *', class: "#{render_error_message(@service, 'address')}"
+            br/
+            = address_fields.text_field :city, autofocus: true, class: "#{render_error_message(@service, 'address')}", value: current_user.full_address[:city]
+
+          .input-field.col.s12
+            = address_fields.label 'Codigo Postal *', class: "#{render_error_message(@service, 'address')}"
+            br/
+            = address_fields.text_field :zip_code, autofocus: true, class: "#{render_error_message(@service, 'address')}", value: current_user.full_address[:zip_code]
+
+        .input-field.col.s12
+          = f.label 'Fecha de Inicio *', class: "#{render_error_message(@service, 'start_date')}"
+          br/
+          = f.datetime_select(:start_date, prompt: { day: 'Elegir Dia', month: 'Elegir Mes', year: 'Elegir Año' }, class: "#{render_error_message(@service, 'start_date')}")
+
+        .input-field.col.s12
+          = f.label 'Fecha de Termino *', class: "#{render_error_message(@service, 'end_date')}"
+          br/
+          = f.datetime_select(:end_date, prompt: { day: 'Elegir Dia', month: 'Elegir Mes', year: 'Elegir Año' })
+
+        .input-field.col.s12
+          = f.label 'Especialidades *', class: "#{render_error_message(@service, 'specialty')}"
+          br/
+          = f.select(:specialty, GlobalConstants::SPECIALTIES, prompt: 'Seleccione especialidad')
+
+      .row.actions
+        .input-field.col.s12
+          = f.submit "Crear", class: 'waves-effect btn light-blue darken-4'
+

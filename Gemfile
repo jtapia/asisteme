@@ -25,6 +25,7 @@ gem 'state_machines-activerecord'
 gem 'twilio-ruby', '~> 4.2.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'geocoder', '~> 1.2.12'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'better_errors'

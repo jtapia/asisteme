@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     put 'profile/update' => 'profile#update', as: 'update_profile'
   end
 
+  resources :services, only: [:new, :create] do
+    get 'chose_assistent', to: 'services#chose_assistent', as: 'chose_assistent'
+  end
+
   authenticated :user do
     root to: "dashboard#index", as: :authenticated_root
   end

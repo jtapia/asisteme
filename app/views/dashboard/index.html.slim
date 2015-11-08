@@ -1,6 +1,6 @@
 .container.services
   .row
     .col.s12.m12.right-align.new-assistance
-      = link_to 'Solicitar asistencia', '#', class: 'waves-effect waves-light btn light-blue darken-4'
+      = link_to 'Solicitar asistencia', new_service_path, class: 'waves-effect waves-light btn light-blue darken-4'
   .row
     == render @services

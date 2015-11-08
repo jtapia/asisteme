@@ -26,6 +26,8 @@
 #  avatar_updated_at      :datetime
 #  form                   :string
 #  bio                    :text
+#  start_date             :datetime
+#  end_date               :datetime
 #
 # Indexes
 #
@@ -55,6 +57,16 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def full_address
+    {
+      line_1:   address.line_1,
+      line_2:   address.line_2,
+      state:    address.state,
+      city:     address.city,
+      zip_code: address.zip_code
+    }
   end
 
   private

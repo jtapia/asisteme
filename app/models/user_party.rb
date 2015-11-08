@@ -26,6 +26,8 @@
 #  avatar_updated_at      :datetime
 #  form                   :string
 #  bio                    :text
+#  start_date             :datetime
+#  end_date               :datetime
 #
 # Indexes
 #

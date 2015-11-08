@@ -13,6 +13,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  address_id  :integer
+#  specialty   :string
+#  start_date  :datetime
+#  end_date    :datetime
 #
 # Indexes
 #
@@ -25,6 +28,8 @@ class Service < ActiveRecord::Base
   belongs_to :customer, foreign_key: 'customer_id', class_name: Customer
   belongs_to :nurse, foreign_key: 'nurse_id', class_name: Nurse
   belongs_to :address
+
+  accepts_nested_attributes_for :address
 
   state_machine :state, initial: :pending do
     event :accept do
