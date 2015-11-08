@@ -5,7 +5,7 @@
         span.card-title.activator.grey-text.text-darken-4
           = service.nurse.full_name
         .row.grey-text.text-darken-3
-          span.col.s12 = service.address.line_1
+          span.col.s12 = service.address.try(:line_1)
         .row.grey-text.text-darken-3
           span.col.s6 = service_date(service)
           span.col.s6.right-align = display_service_price(service)

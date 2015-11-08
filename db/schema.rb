@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151108023334) do
     t.integer  "address_id"
   end
 
+  add_index "services", ["address_id"], name: "index_services_on_address_id", using: :btree
   add_index "services", ["customer_id"], name: "index_services_on_customer_id", using: :btree
   add_index "services", ["nurse_id"], name: "index_services_on_nurse_id", using: :btree
 

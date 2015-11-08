@@ -23,5 +23,5 @@ class Service < ActiveRecord::Base
     event :complete do
       transition accepted: :completed
     end
-;  end
+  end
 end

@@ -1,10 +1,12 @@
 module ServiceHelper
   def service_date(service)
-    service.created_at.to_date.to_formatted_s(:long_ordinal)
+    I18n.localize service.created_at, format: :history_details
   end
 
   def service_state_badge(service)
-    "<span class='badge #{service.state}'>#{service.state}</span>"
+    content_tag :span, class: "badge #{service.state}" do
+      service.state
+    end
   end
 
   def display_service_price(service)
