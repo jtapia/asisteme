@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151107213213) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", unique: true, using: :btree
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "services", force: :cascade do |t|
     t.integer  "customer_id"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20151107213213) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "services", ["customer_id"], name: "index_services_on_customer_id", unique: true, using: :btree
-  add_index "services", ["nurse_id"], name: "index_services_on_nurse_id", unique: true, using: :btree
+  add_index "services", ["customer_id"], name: "index_services_on_customer_id", using: :btree
+  add_index "services", ["nurse_id"], name: "index_services_on_nurse_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
