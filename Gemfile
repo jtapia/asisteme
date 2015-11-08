@@ -33,6 +33,7 @@ group :development, :test do
   gem 'rspec-expectations'
   gem 'spring'
   gem 'web-console', '~> 2.0'
+  gem 'faker'
 end
 
 group :production do

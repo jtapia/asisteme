@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   # callbacks
   after_create :set_default_user_type
 
+  has_one :address
+
   private
 
     def set_default_user_type
