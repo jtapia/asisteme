@@ -34,4 +34,5 @@
 #
 
 class Customer < UserParty
+  has_many :services
 end

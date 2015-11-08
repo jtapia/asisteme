@@ -34,6 +34,9 @@
 #
 
 class Nurse < UserParty
+
+  has_many :services
+
   validates_presence_of :form, on: :update
 
   #validates_attachment_presence :avatar, on: :update

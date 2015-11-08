@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root 'home#index'
   get 'terms-and-conditions' => 'terms_and_conditions#index', as: 'terms_and_conditions'
   get 'privacy-policy' => 'privacy_policy#index', as: 'privacy_policy'
   get 'faq' => 'faq#index', as: 'faq'
@@ -17,4 +16,10 @@ Rails.application.routes.draw do
     get 'profile' => 'dashboard#profile', on: :collection
     post 'update_info' => 'dashboard#update_info', on: :collection
   end
+
+  authenticated :user do
+    root to: "dashboard#index", as: :authenticated_root
+  end
+
+  root 'home#index'
 end
