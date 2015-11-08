@@ -29,9 +29,14 @@ p {
   line-height: 0;
   height: auto;
   color: $white_90;
+
   .section {
     width: 100%;
   }
+}
+
+.text-with-shadow {
+  text-shadow: 1px 1px black;
 }
 
 @media only screen and(max-width : 992px) {
