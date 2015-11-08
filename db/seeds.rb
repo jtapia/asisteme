@@ -9,4 +9,11 @@ address_client = Address.create(user_id: customer.id, line_1: Faker::Address.str
 address_nurse = Address.create(user_id: nurse.id, line_1: Faker::Address.street_address, state: 'COL', city: 'Colima', country: 'MX', zip_code: Faker::Address.zip_code, additional_info: 'Between line_1 and line_2')
 
 # Create Service
-Service.create(customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 3)
+Service.create(address_id: address_client.id, customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 3, state: 'pending')
+Service.create(address_id: address_client.id, customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 3, state: 'accepted')
+Service.create(address_id: address_client.id, customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 2, state: 'rejected')
+Service.create(address_id: address_client.id, customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 5, state: 'dealing')
+Service.create(address_id: address_client.id, customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 3, state: 'completed')
+Service.create(address_id: address_client.id, customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 2, state: 'canceled')
+Service.create(address_id: address_client.id, customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 1, state: 'pending')
+Service.create(address_id: address_client.id, customer_id: customer.id, nurse_id: nurse.id, description: Faker::Lorem.sentence, price: Faker::Commerce.price, rating: 5, state: 'pending')
