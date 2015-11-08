@@ -12,24 +12,43 @@
       <div class="row">
 
         <div class="input-field col s12">
-          <%= f.label :correo %><br />
-          <%= f.email_field :email, autofocus: true %>
+          <%= f.label 'Nombre Completo *', class: "#{render_error_message(resource, 'first_name')}" %>
+          <br />
+          <%= f.text_field :first_name, autofocus: true, class: "#{render_error_message(resource, 'first_name')}" %>
         </div>
 
         <div class="input-field col s12">
-          <%= f.label :contraseña %>
-          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.label 'Apellidos *', class: "#{render_error_message(resource, 'last_name')}" %><br />
+          <%= f.text_field :last_name, autofocus: true, class: "#{render_error_message(resource, 'last_name')}" %>
         </div>
 
         <div class="input-field col s12">
-          <%= f.label 'confirmacion de contraseña' %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          <%= f.label 'Telefono *', class: "#{render_error_message(resource, 'phone')}" %>
+          <br />
+          <%= f.text_field :phone, autofocus: true, class: "#{render_error_message(resource, 'phone')}" %>
+        </div>
+
+        <div class="input-field col s12">
+          <%= f.label 'Correo *', class: "#{render_error_message(resource, 'email')}" %>
+          <br />
+          <%= f.email_field :email, class: "#{render_error_message(resource, 'email')}" %>
+        </div>
+
+        <div class="input-field col s12">
+          <%= f.label 'password *', class: "#{render_error_message(resource, 'password')}" %>
+          <%= f.password_field :password, class: "#{render_error_message(resource, 'password')}" %>
+        </div>
+
+        <div class="input-field col s12">
+          <%= f.label 'confirmacion de contraseña', class: "#{render_error_message(resource, 'password_confirmation')}" %>
+          <br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "#{render_error_message(resource, 'password_confirmation')}" %>
         </div>
       </div>
 
       <div class="row actions">
         <div class="input-field col s12">
-          <%= f.submit "Registrar cuenta", class: 'waves-effect btn light-blue lighten-3' %>
+          <%= f.submit "Registrar cuenta", class: "waves-effect btn light-blue darken-4" %>
         </div>
       </div>
 

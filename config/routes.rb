@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   get 'faq' => 'faq#index', as: 'faq'
   get 'contact' => 'contact#index', as: 'contact'
 
-  resources :dashboard, only: :index
+  resources :dashboard, only: :index do
+    get 'profile' => 'dashboard#profile', on: :collection
+    post 'update_info' => 'dashboard#update_info', on: :collection
+  end
 end

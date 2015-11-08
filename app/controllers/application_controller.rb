@@ -6,14 +6,24 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+    request.env['omniauth.origin'] || stored_location_for(resource) || profile_dashboard_index_path
   end
 
   protected
 
     def configure_permitted_parameters
       assign_user_type
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :type) }
+      devise_parameter_sanitizer.for(:sign_up) do |u|
+        u.permit(
+          :email,
+          :password,
+          :password_confirmation,
+          :type,
+          :first_name,
+          :last_name,
+          :phone
+        )
+      end
     end
 
     def assign_user_type
