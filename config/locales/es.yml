@@ -51,7 +51,8 @@ es:
 
   activerecord:
     models:
-      user: User
+      user: Usuario
+      address: Direccion
     attributes:
       user:
         email: "Correo"
@@ -61,6 +62,12 @@ es:
         phone: 'Telefono'
         form: 'Cedula'
         bio: 'Biografia'
+      address:
+        line_1: 'Calle y numero'
+        line_2: 'Colonia'
+        city: 'Ciudad'
+        state: 'Estado/Provincia'
+        country: 'Pais'
 
     errors:
       models:

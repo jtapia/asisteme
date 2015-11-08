@@ -21,4 +21,11 @@
 
 class Address < ActiveRecord::Base
   belongs_to :user
+
+  validates_presence_of :line_1,
+                        :line_2,
+                        :state,
+                        :city,
+                        :country,
+                        if: Proc.new{ |address| address.user && address.user.is_nurse? }
 end

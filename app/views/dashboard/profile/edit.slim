@@ -1,6 +1,6 @@
 .container
   .row
-    = form_for @user, as: :user, html: { class: 'col s12 m12 l8 offset-l2', method: :put  }, url: dashboard_update_profile_path do |f|
+    = form_for setup_user(@user), as: :user, html: { class: 'col s12 m12 l8 offset-l2', method: :put  }, url: dashboard_update_profile_path do |f|
       h3.center.light-blue-text.text-darken-4.title
         | Completa tu Perfil
       .row
@@ -38,7 +38,40 @@
             = f.label 'Cuentanos un poco acerca de ti *', class: "#{render_error_message(@user, 'bio')}"
             br
             = f.text_area :bio, autofocus: true,
-                          class: "materialize-textarea #{render_error_message(@user, 'bio')}"
+                                class: "materialize-textarea #{render_error_message(@user, 'bio')}"
+
+
+        = f.fields_for :address do |address|
+
+          .input-field.col.s12
+            = address.label :calle_y_numero, class: "#{render_error_message(@user.address, 'line_1')}"
+            br
+            = address.text_field :line_1, autofocus: true, class: "#{render_error_message(@user.address, 'line_1')}"
+
+          .input-field.col.s12
+            = address.label :colonia, class: "#{render_error_message(@user.address, 'line_2')}"
+            br
+            = address.text_field :line_2, autofocus: true, class: "#{render_error_message(@user.address, 'line_2')}"
+
+          .input-field.col.s12
+            = address.label :estado, class: "#{render_error_message(@user.address, 'state')}"
+            br
+            = address.text_field :state, autofocus: true, class: "#{render_error_message(@user.address, 'state')}"
+
+          .input-field.col.s12
+            = address.label :ciudad, class: "#{render_error_message(@user.address, 'city')}"
+            br
+            = address.text_field :city, autofocus: true, class: "#{render_error_message(@user.address, 'city')}"
+
+          .input-field.col.s12
+            = address.label :pais, class: "#{render_error_message(@user.address, 'country')}"
+            br
+            = address.text_field :country, autofocus: true, class: "#{render_error_message(@user.address, 'country')}"
+
+          .input-field.col.s12
+            = address.label :information_adicional
+            br
+            = address.text_area :additional_info, class: "materialize-textarea"
 
       .row.actions
         .input-field.col.s12
