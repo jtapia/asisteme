@@ -16,6 +16,7 @@
 #
 # Indexes
 #
+#  index_services_on_address_id   (address_id)
 #  index_services_on_customer_id  (customer_id)
 #  index_services_on_nurse_id     (nurse_id)
 #

@@ -4,8 +4,7 @@ module Dashboard
     before_filter :find_user
 
     def update
-      @user.update_attributes(permitted_user_params)
-      if @user.valid?
+      if  @user.update_attributes(permitted_user_params)
         @user.complete! if @user.pending?
         flash[:notice] = 'La informacion se actualizo correctamente'
         redirect_to dashboard_profile_path
