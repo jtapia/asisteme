@@ -1,0 +1,44 @@
+.container
+  .row
+    = form_for @user, as: :user, html: { class: 'col s12 m12 l8 offset-l2', method: :post  }, url: update_info_dashboard_index_path do |f|
+      h3.center.light-blue-text.text-darken-4.title
+        | Completa tu Perfil
+      .row
+
+        = render 'show_errors', locals: { object: current_user }
+
+        .input-field.col.s12
+          = f.label 'Nombre Completo *', class: "#{render_error_message(@user, 'first_name')}"
+          br/
+          = f.text_field :first_name, autofocus: true, class: "#{render_error_message(@user, 'first_name')}"
+
+        .input-field.col.s12
+          = f.label 'Apellidos *', class: "#{render_error_message(@user, 'last_name')}"
+          br/
+          = f.text_field :last_name, autofocus: true, class: "#{render_error_message(@user, 'last_name')}"
+
+        .input-field.col.s12
+          = f.label 'Telefono *', class: "#{render_error_message(@user, 'phone')}"
+          br/
+          = f.text_field :phone, autofocus: true, class: "#{render_error_message(@user, 'phone')}"
+
+        .input-field.col.s12
+          = f.label 'Cedula Profesional*', class: "#{render_error_message(@user, 'form')}"
+          br/
+          = f.text_field :form, autofocus: true, class: "#{render_error_message(@user, 'form')}"
+
+        .input-field.col.s12
+          = f.label 'Correo *', class: "#{render_error_message(@user, 'email')}"
+          br/
+          = f.email_field :email, class: "#{render_error_message(@user, 'email')}"
+
+        .input-field.col.s12
+          = f.label 'Cuentanos un poco acerca de ti *', class: "#{render_error_message(@user, 'bio')}"
+          br/
+          = f.text_area :bio, autofocus: true,
+                              class: "materialize-textarea #{render_error_message(@user, 'bio')}"
+
+      .row.actions
+        .input-field.col.s12
+          = f.submit "Actualizar", class: 'waves-effect btn light-blue darken-4'
+

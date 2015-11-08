@@ -54,8 +54,13 @@ es:
       user: User
     attributes:
       user:
-        email: "Email"
-        password: "Password"
+        email: "Correo"
+        password: "Contraseña"
+        first_name: 'Nombre Completo'
+        last_name: 'Apellidos'
+        phone: 'Telefono'
+        form: 'Cedula'
+        bio: 'Biografia'
 
     errors:
       models:
