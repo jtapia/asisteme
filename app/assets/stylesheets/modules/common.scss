@@ -39,14 +39,16 @@ p {
     position: absolute;
     top: 40%;
   }
-  #index-banner .section {
-    top: 10%;
+  #index-banner {
+    .section { top: 10%; }
   }
 }
 
 @media only screen and(max-width : 600px) {
-  #index-banner .section {
-    top: 0;
+  #index-banner {
+    .section { top: 0; }
+    .btn-ext-lg { width: 100% }
+    h4 { text-shadow: 2px 2px gray; }
   }
 }
 .icon-block {
