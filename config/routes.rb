@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'privacy-policy' => 'privacy_policy#index', as: 'privacy_policy'
   get 'faq' => 'faq#index', as: 'faq'
   get 'contact' => 'contact#index', as: 'contact'
+
+  resources :dashboard, only: :index
 end
