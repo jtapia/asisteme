@@ -22,7 +22,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
 gem 'state_machines-activerecord'
-gem 'turbolinks'
 gem 'twilio-ruby', '~> 4.2.1'
 gem 'uglifier', '>= 1.3.0'
 
@@ -34,6 +33,7 @@ group :development, :test do
   gem 'rspec-expectations'
   gem 'spring'
   gem 'web-console', '~> 2.0'
+  gem 'faker'
 end
 
 group :production do

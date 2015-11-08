@@ -19,7 +19,7 @@
           h5.center Ofrecer asistencia
           p.light.center-align Reg&iacute;strate como proveedor de asistencia en nuestra plataforma para recibir ofertas de trabajo en tiempo real cerca de ti.
           .row.center
-            a#download-button.btn-large.waves-effect.waves-light.light-blue.darken-4 href="#"  Trabaja como asistente
+            = link_to('Trabaja como asistente', nurses_sign_up_path, class: 'btn-large waves-effect waves-light light-blue darken-4', id: 'download-button')
       .col.s12.m6
         .icon-block
           h2.center.light-blue-text.text-darken-4
@@ -27,7 +27,7 @@
           h5.center Solicitar asistencia
           p.light.center-align Reg&iacute;strate como usuario en nuestra plataforma para buscar personal capacitado que atienda las necesidades de asistencia tuyas o de tu familia.
           .row.center
-            a#download-button.btn-large.waves-effect.waves-light.light-blue.darken-4 href="#"  Abre una cuenta
+            = link_to('Abre una cuenta', customers_sign_up_path, class: 'btn-large waves-effect waves-light light-blue darken-4', id: 'download-button')
 .parallax-container.valign-wrapper
   .section.no-pad-bot
     .container
@@ -49,7 +49,7 @@
         .icon-block.center
           h2.light-blue-text.text-darken-4
             i.material-icons notifications
-          h5 Notificaciones
+          h5 Notifica
           p.light Haremos saber al proveedor que solicitas un servicio via mensajes de texto y correo electronico para que acepte o rechaze la oferta, de igual manera tu tambien recibiras una notificacion cuando el proveedor tome una decision.
       .col.s12.m3
         .icon-block.center
@@ -61,7 +61,7 @@
         .icon-block.center
           h2.light-blue-text.text-darken-4
             i.material-icons star
-          h5 Calificar
+          h5 Califica
           p.light Al terminar el servicio mandaremos una pequeña encuesta de calidad de servicio, lo que permitira identificar mejor a nuestros proveedores para futuras asignaciones.
 .parallax-container.valign-wrapper
   .section.no-pad-bot
@@ -85,7 +85,7 @@
         .icon-block.center
           h2.light-blue-text.text-darken-4
             i.material-icons notifications
-          h5 Notificaciones
+          h5 Notifica
           p.light Recibiras notificationes detalladas via mensaje de texto y correo electronico cuando alguien solicite o confirme un servicio.
       .col.s12.m3
         .icon-block.center
@@ -97,5 +97,5 @@
         .icon-block.center
           h2.light-blue-text.text-darken-4
             i.material-icons attach_money
-          h5 Finalizar
+          h5 Finaliza
           p.light Una vez terminado el servicio recibiras el pago directamente a tu cuenta de banco que tengas configurada en nuestra plataforma.
