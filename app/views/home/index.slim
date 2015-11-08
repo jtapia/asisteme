@@ -5,7 +5,7 @@
       .row.center
         h4.header.col.s12.light La manera mas f&aacute;cil de buscar y brindar servicios de asistencia en tu localidad.
       .row.center
-        a#download-button.btn-large.btn-ext-lg.waves-effect.waves-light.light-blue.darken-4 href="#"  ¡Permitenos Asistirte!
+        = link_to('¡Permitenos Asistirte!', customers_sign_up_path, class: 'btn-large btn-ext-lg waves-effect waves-light light-blue darken-4', id: 'download-button')
   .parallax
     == image_tag 'home/background1.png'
 .container
@@ -68,7 +68,7 @@
     .container
       .row.center
         h2.header.col.s12 ¿Como ofrezco asistencia?
-        a#download-button.btn-large.waves-effect.waves-light.light-blue.darken-4 href="#" ¡Únete a Assisteme!
+        = link_to('¡Únete a Assisteme!', nurses_sign_up_path, class: 'btn-large waves-effect waves-light light-blue darken-4', id: 'download-button')
   .parallax
     == image_tag 'home/background3.jpg'
 .container
