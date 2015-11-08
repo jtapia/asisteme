@@ -290,7 +290,7 @@ DEPENDENCIES
   faker
   figaro
   friendly_id (~> 5.1.0)
-  geocoder
+  geocoder (~> 1.2.12)
   jbuilder (~> 2.0)
   jquery-rails
   mandrill_mailer
