@@ -86,4 +86,24 @@ module ApplicationHelper
 
     html.html_safe
   end
+
+  def notice_and_alert_messages
+    result = ''
+
+    if flash.any?
+      flash.each do |key, msg|
+        next if msg.blank?
+
+        type = 'flash-notice' if key == 'notice'
+
+        result = result + content_tag(:blockquote, class: "col s12 m12 l8 offset-l2 #{type}") do
+          concat(content_tag(:div) do
+            msg.kind_of?(Array) ? msg.join('<br>').html_safe : msg
+          end)
+        end
+      end
+    end
+
+    result.html_safe
+  end
 end

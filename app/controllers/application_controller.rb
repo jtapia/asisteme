@@ -13,9 +13,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
-
     def force_user_to_complete_profile
-      redirect_to dashboard_edit_profile_path if current_user.pending? && controller_name != 'profile'
+      if current_user.pending? && controller_name != 'profile'
+        flash[:alert] = 'Para comenzar a recibir trabajos es necesario que completes tu perfil con informacion valida'
+        redirect_to dashboard_edit_profile_path
+      end
     end
 
     def configure_permitted_parameters

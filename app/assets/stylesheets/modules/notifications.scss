@@ -8,6 +8,6 @@
   margin-top: 128px !important;
 }
 
-@media only screen and(max-width : 600px) {
-  .notification-message { font-size: 12px; }
+.flash-notice {
+  border-left: 5px solid $main-color-1 !important;
 }

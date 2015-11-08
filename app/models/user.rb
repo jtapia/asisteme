@@ -44,12 +44,14 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", mini: "50x50>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  has_one :address
+  accepts_nested_attributes_for :address,
+                                allow_destroy: true
+
   # callbacks
   after_create :set_default_user_type
 
   define_user_types
-
-  has_one :address
 
   def full_name
     "#{first_name} #{last_name}"

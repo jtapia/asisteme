@@ -48,6 +48,9 @@ html
           a.light-blue-text.text-darken-4.button-collapse data-activates="nav-mobile" href="#"
             i.material-icons menu
     #main-content class="#{increase_margin_container}"
+      .container
+        .row
+          = notice_and_alert_messages if flash.any?
       == yield
     footer.page-footer.light-blue.darken-4
       .container
