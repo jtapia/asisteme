@@ -1,0 +1,18 @@
+.services .badge {
+  left: 15px;
+  right: auto;
+}
+
+.badge {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff !important;
+  border-radius: 2px;
+
+  &.pending { @extend .light-blue, .darken-4; }
+  &.completed { @extend .teal, .darken-1; }
+  &.rejected { @extend .deep-orange, .darken-1; }
+  &.canceled { @extend .red, .darken-1; }
+  &.dealing { @extend .amber, .darken-1; }
+  &.accepted { @extend .light-blue, .lighten-3; }
+}

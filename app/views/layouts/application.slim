@@ -18,6 +18,8 @@ html
             == image_tag 'home/logo.svg'
           ul.right.hide-on-med-and-down
             li
+              = link_to 'Mis servicios', dashboard_index_path
+            li
               - if user_signed_in?
                 = link_to('Cerrar Sesión', destroy_user_session_path, :method => :delete, class: 'gray-text')
               - else
