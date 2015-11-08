@@ -15,7 +15,7 @@ class DashboardController < ApplicationController
     @user.update_attributes(update_info_params)
 
     if @user.valid?
-      @user.set_profile_as_complete!
+      @user.complete! if @user.pending?
       redirect_to action: :profile
     else
       render 'profile'
@@ -26,7 +26,7 @@ class DashboardController < ApplicationController
   private
 
     def force_user_to_complete_profile
-      redirect_to action: :profile if current_user.incomplete_profile?
+      redirect_to action: :profile if current_user.pending?
     end
 
     def find_current_user

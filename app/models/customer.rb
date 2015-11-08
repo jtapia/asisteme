@@ -36,11 +36,14 @@
 class Customer < UserParty
   has_many :services
 
-  after_create :set_profiles_as_completed
-
-  private
-
-    def set_profiles_as_completed
-      self.complete!
+  state_machine initial: :completed do
+    event :ban do
+      transition completed: :banned
     end
+
+    event :unban do
+      transition banned: :completed
+    end
+  end
+
 end

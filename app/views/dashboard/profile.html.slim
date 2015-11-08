@@ -33,11 +33,12 @@
           br/
           = f.email_field :email, class: "#{render_error_message(@user, 'email')}"
 
-        .input-field.col.s12
-          = f.label 'Cuentanos un poco acerca de ti *', class: "#{render_error_message(@user, 'bio')}"
-          br/
-          = f.text_area :bio, autofocus: true,
-                              class: "materialize-textarea #{render_error_message(@user, 'bio')}"
+        - if current_user.is_nurse?
+          .input-field.col.s12
+            = f.label 'Cuentanos un poco acerca de ti *', class: "#{render_error_message(@user, 'bio')}"
+            br/
+            = f.text_area :bio, autofocus: true,
+                                class: "materialize-textarea #{render_error_message(@user, 'bio')}"
 
       .row.actions
         .input-field.col.s12
