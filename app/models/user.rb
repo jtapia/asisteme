@@ -46,22 +46,12 @@ class User < ActiveRecord::Base
 
   has_one :address
   accepts_nested_attributes_for :address,
-                                :reject_if => proc { |attrs| self.validate_attributes_for_address(attrs) },
                                 allow_destroy: true
 
   # callbacks
   after_create :set_default_user_type
 
   define_user_types
-
-  def self.validate_attributes_for_address(attributes)
-    attributes[:line_1].blank? ||
-      attributes[:line_2].blank? ||
-      attributes[:state].blank? ||
-      attributes[:city].blank? ||
-      attributes[:country].blank?
-    false
-  end
 
   def full_name
     "#{first_name} #{last_name}"
