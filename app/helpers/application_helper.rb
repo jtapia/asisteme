@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def incomplete_user_profile?
-    (user_signed_in? && current_user.incomplete_profile?) || false
+    user_signed_in? && current_user.pending?
   end
 
   def format_user_form_title

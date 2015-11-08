@@ -55,14 +55,6 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def set_profile_as_complete!
-    self.complete! if incomplete_profile?
-  end
-
-  def incomplete_profile?
-    state != 'completed' && state != 'approved'
-  end
-
   private
 
     def set_default_user_type

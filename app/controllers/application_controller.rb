@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || stored_location_for(resource) || profile_dashboard_index_path
+    path = resource.is_nurse? && !resource.completed? ? profile_dashboard_index_path : dashboard_index_path
+    request.env['omniauth.origin'] || stored_location_for(resource) || path
   end
 
   protected

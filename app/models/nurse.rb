@@ -40,5 +40,17 @@ class Nurse < UserParty
   validates_presence_of :form, on: :update
 
   #validates_attachment_presence :avatar, on: :update
+
+  state_machine initial: :pending do
+
+    event :complete do
+      transition pending: :completed
+    end
+
+    event :approve do
+      transition completed: :approved
+    end
+
+  end
 end
 
