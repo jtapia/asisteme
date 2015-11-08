@@ -11,13 +11,13 @@
 
       <div class="row">
 
-        <div class="input-field col s12">
-          <%= f.label 'Nombre Completo *', class: "#{render_error_message(resource, 'first_name')}" %>
+        <div class="input-field col s12 m6">
+          <%= f.label 'Nombre *', class: "#{render_error_message(resource, 'first_name')}" %>
           <br />
           <%= f.text_field :first_name, autofocus: true, class: "#{render_error_message(resource, 'first_name')}" %>
         </div>
 
-        <div class="input-field col s12">
+        <div class="input-field col s12 m6">
           <%= f.label 'Apellidos *', class: "#{render_error_message(resource, 'last_name')}" %><br />
           <%= f.text_field :last_name, autofocus: true, class: "#{render_error_message(resource, 'last_name')}" %>
         </div>

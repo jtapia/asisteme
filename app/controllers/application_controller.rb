@@ -4,13 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :force_user_to_complete_profile, except: [:profile, :update_info], if: -> { current_user.present? }
 
   def after_sign_in_path_for(resource)
-    path = resource.is_nurse? && !resource.completed? ? profile_dashboard_index_path : dashboard_index_path
+    path = resource.is_nurse? && !resource.completed? ? dashboard_edit_profile_path : dashboard_index_path
     request.env['omniauth.origin'] || stored_location_for(resource) || path
   end
 
   protected
+
+
+    def force_user_to_complete_profile
+      redirect_to dashboard_edit_profile_path if current_user.pending? && controller_name != 'profile'
+    end
 
     def configure_permitted_parameters
       assign_user_type

@@ -47,7 +47,7 @@ module ApplicationHelper
 
       if session[:registration] == 'Nurse'
         icon = 'local_hospital'
-        person_title = 'Enfermera'
+        person_title = 'Asistente'
       end
 
       if session[:registration] == 'Customer'

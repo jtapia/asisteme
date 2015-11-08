@@ -1,6 +1,6 @@
 .container
   .row
-    = form_for @user, as: :user, html: { class: 'col s12 m12 l8 offset-l2', method: :post  }, url: dashboard_update_profile_path do |f|
+    = form_for @user, as: :user, html: { class: 'col s12 m12 l8 offset-l2', method: :put  }, url: dashboard_update_profile_path do |f|
       h3.center.light-blue-text.text-darken-4.title
         | Completa tu Perfil
       .row
@@ -38,7 +38,7 @@
             = f.label 'Cuentanos un poco acerca de ti *', class: "#{render_error_message(@user, 'bio')}"
             br
             = f.text_area :bio, autofocus: true,
-                                class: "materialize-textarea #{render_error_message(@user, 'bio')}"
+                          class: "materialize-textarea #{render_error_message(@user, 'bio')}"
 
       .row.actions
         .input-field.col.s12
