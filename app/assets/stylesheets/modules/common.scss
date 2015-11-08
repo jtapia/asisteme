@@ -10,14 +10,10 @@ body {
     position: fixed;
   }
 
-  //z-index: 2;
-
   .brand-logo {
     color: #fff;
   }
-  ul a {
-    color: #fff;
-  }
+  .gray-text { color: $gray }
 }
 
 p {
