@@ -1,0 +1,13 @@
+= link_to '#' do
+  .col.s12.m12.l4
+    .card.service-card
+      .card-content
+        span.card-title.activator.grey-text.text-darken-4
+          = service.nurse.full_name
+        .row.grey-text.text-darken-3
+          span.col.s12 = service.address.line_1
+        .row.grey-text.text-darken-3
+          span.col.s6 = service_date(service)
+          span.col.s6.right-align = display_service_price(service)
+        .row
+          == service_state_badge(service)
