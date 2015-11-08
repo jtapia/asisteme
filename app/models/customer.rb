@@ -35,4 +35,12 @@
 
 class Customer < UserParty
   has_many :services
+
+  after_create :set_profiles_as_completed
+
+  private
+
+    def set_profiles_as_completed
+      self.complete!
+    end
 end

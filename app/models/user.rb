@@ -34,6 +34,8 @@
 #
 
 class User < ActiveRecord::Base
+  extend Modules::UserExtender
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -44,6 +46,8 @@ class User < ActiveRecord::Base
 
   # callbacks
   after_create :set_default_user_type
+
+  define_user_types
 
   has_one :address
 

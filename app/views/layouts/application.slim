@@ -17,15 +17,19 @@ html
           == link_to root_path, id: 'logo-container', class: 'brand-logo' do
             == image_tag 'home/logo.svg'
           ul.right.hide-on-med-and-down
-            li
-              = link_to 'Mis servicios', dashboard_index_path
+
+            - if user_signed_in?
+              li
+                = link_to 'Mis servicios', dashboard_index_path, class: 'gray-text'
+
             li
               - if user_signed_in?
                 = link_to('Cerrar Sesión', destroy_user_session_path, :method => :delete, class: 'gray-text')
               - else
                 = link_to "Iniciar sesión", new_user_session_path, class: 'gray-text'
-            li
-              = link_to('Trabaja como asistente', nurses_sign_up_path, class: 'btn waves-effect waves-light light-blue darken-4', id: 'download-button')
+            - unless user_signed_in?
+              li
+                = link_to('Trabaja como asistente', nurses_sign_up_path, class: 'btn waves-effect waves-light light-blue darken-4', id: 'download-button')
           ul#nav-mobile.side-nav
             li
               - if user_signed_in?
@@ -33,8 +37,11 @@ html
               - else
                 = link_to "Iniciar sesión", new_user_session_path, class: 'light-blue-text text-darken-4'
             .divider
-            li
-              = link_to('Trabaja como asistente', nurses_sign_up_path, class: 'light-blue-text text-darken-4')
+
+            - unless user_signed_in?
+              li
+                = link_to('Trabaja como asistente', nurses_sign_up_path, class: 'light-blue-text text-darken-4')
+
           a.light-blue-text.text-darken-4.button-collapse data-activates="nav-mobile" href="#"
             i.material-icons menu
     #main-content class="#{increase_margin_container}"

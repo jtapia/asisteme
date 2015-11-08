@@ -22,10 +22,11 @@
           br/
           = f.text_field :phone, autofocus: true, class: "#{render_error_message(@user, 'phone')}"
 
-        .input-field.col.s12
-          = f.label 'Cedula Profesional*', class: "#{render_error_message(@user, 'form')}"
-          br/
-          = f.text_field :form, autofocus: true, class: "#{render_error_message(@user, 'form')}"
+        - if current_user.is_nurse?
+          .input-field.col.s12
+            = f.label 'Cedula Profesional*', class: "#{render_error_message(@user, 'form')}"
+            br/
+            = f.text_field :form, autofocus: true, class: "#{render_error_message(@user, 'form')}"
 
         .input-field.col.s12
           = f.label 'Correo *', class: "#{render_error_message(@user, 'email')}"
